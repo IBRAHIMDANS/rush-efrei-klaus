@@ -1,0 +1,10 @@
+{
+  "name": "rush-efrei-klaus-ibrahima",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/node": "^7.5.0",
+    "eslint": "^6.0.1"
+  }
+}
