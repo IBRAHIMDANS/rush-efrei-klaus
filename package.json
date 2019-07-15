@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon main.js --exec babel-node ",
+    "dev": "nodemon ./src/main --exec babel-node ",
     "build":"npx babel ./src --out-dir .dist/ --copy-files",
     "start":"yarn build && node .dist/main.js"
   }

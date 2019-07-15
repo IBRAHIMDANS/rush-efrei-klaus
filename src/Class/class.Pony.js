@@ -1,24 +1,19 @@
-import Figurine from './Interface.Figurine';
-export default class Pony extends Figurine {
+import Toy from "../Interfaces/Interface.Toy";
+export default class Pony extends Toy {
   #_nb = 1;
 
-  get x() {
-    console.log("hello");
-    return this.#_nb;
-  }
-
   constructor() {
-    super()
-    var id = this.#_nb;
-    let type = "Pony #X";
+    super();
+    let id = this.#_nb;
+    let type = `Pony ${id++}`;
     console.log(`
-        Pony ${id} is singing -->
+         ${type} is singing -->
         Dou-double poney, j’fais izi money
         D’où tu m’connais ? Parle moi en billets violets
         Dou-double poney, j’fais izi money `);
-    this.id++;
   }
   isMoved() {
     console.log("Huuuuuuhu!");
   }
+
 }
