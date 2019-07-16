@@ -23,13 +23,21 @@ majdi.Pack(box, BEJITA);
 majdi.Pack(paper, pony);
 majdi.Pack(paper, BEJITA);
 
-majdi.Unpack(paper);
-majdi.Unpack(box);
+const toy = majdi.Unpack(paper);
+console.log(toy === pony);
+const r = majdi.Unpack(box);
+console.log(r == null);
+console.log("--- Step 3 ---");
 const table = new Table();
 const conveyor = new ConveyorBell();
 majdi.put(table, pony);
 majdi.put(table, BEJITA);
 majdi.put(table, box);
+majdi.put(table, pony);
+majdi.put(table, pony);
 majdi.look(table);
-majdi.in(conveyor);
-majdi.look(conveyor);
+//majdi.in(pony)
+//majdi.out()
+//majdi.look(conveyor);
+//majdi.in(conveyor);
+//majdi.look(conveyor);

@@ -18,43 +18,43 @@ export default class ELf {
   Pack(pack, toy) {
     if (pack instanceof Box) {
       if (pack.isOpen === true) {
-        if (pack.toy !== null) {
-          console.log("Sorry this package already filled");
-          //  return "Sorry this package already filled";
-        }
         pack.Insert(toy);
         console.log(`Yeaaaah! Just packing the toy ~~ ${toy.getType()} ~~`);
-      } else {
-        console.log("Sorry this package is not open");
+        return;
       }
-      // return "Sorry this package is not open";
-    } else {
-      if (pack.toy === null) {
-        pack.Insert(toy);
-        console.log(`Yeaaaah! Just packing the toy ~~ ${toy.type} ~~`);
-      } else {
-        console.log("Sorry this package already filled");
-      }
-      // return `Yeaaaah! Just packing the toy ~~  ~~`;
     }
+    if (pack.toy !== null) {
+      console.log("Sorry this package already filled");
+      return;
+    }
+    pack.Insert(toy);
+
+    console.log(`Yeaaaah! Just packing the toy ~~ ${toy.type} ~~`);
+    return toy;
   }
 
   Unpack(pack) {
-    if (pack.isOpen === true || !pack.toy) {
-      console.log("Sorry this package is already empty ! :(");
-      return "Sorry this package is already empty ! :(";
-    } else {
-      //pack.toy.setType = null;
-      console.log(`Ooooooh! Just unpacking the toy ~~ ${pack.toy.type} ~~`);
-      return `Ooooooh! Just unpacking the toy ~~  ~~`;
+    if (pack instanceof Box) {
+      if (pack.isOpen === true || !pack.toy) {
+        console.log("Sorry this package is already empty ! :(");
+        return;
+      }
     }
+    if (pack.toy === null) {
+      console.log("Sorry this package is already empty ! :(");
+      return;
+    }
+    console.log(`Ooooooh! Just unpacking the toy ~~ ${pack.toy.type} ~~`);
+    pack.toy = null;
+    return;
   }
   put(furnitures, obj) {
     furnitures.put(obj);
   }
 
   take() {
-    console.log("take")
+    console.log("take");
+    this.furnitures.take();
   }
 
   look(furnitures) {
@@ -67,5 +67,8 @@ export default class ELf {
 
   in(conveyor) {
     conveyor.in();
+  }
+  out(furnitures) {
+    furnitures.out();
   }
 }
