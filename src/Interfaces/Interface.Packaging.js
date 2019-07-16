@@ -1,10 +1,12 @@
 export default class Packaging {
-    isOpen
-    toy
-    constructor() {
-        this.isOpen= false;
-        this.toy= null
-    }
-    Open() {}
-    Insert(toy) {}
+  isOpen = false;
+  toy= null;
+
+  Open() {
+    this.isOpen = true;
+  }
+  Insert(toy) {
+    this.toy = toy;
+    this.isOpen = false;
+  }
 }
