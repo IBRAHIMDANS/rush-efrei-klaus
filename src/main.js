@@ -1,7 +1,7 @@
 import Pony from "./Models/class.Pony";
 import DragonBall from "./Models/class.DragonBall";
 import Box from "./Models/class.Box";
-import { DBHeroes } from "./constants/DBHeroes";
+import {DBHeroes} from "./constants/DBHeroes";
 import Elf from "./Models/class.Elf";
 import GiftWrap from "./Models/class.GiftWrap";
 import ConveyorBell from "./Models/class.ConveyorBelt";

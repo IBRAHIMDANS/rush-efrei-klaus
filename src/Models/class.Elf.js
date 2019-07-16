@@ -1,74 +1,77 @@
 import Box from "./class.Box";
+
 export default class ELf {
-  #nickname = "";
+    #nickname = "";
 
-  constructor(nickname) {
-    this.#nickname = nickname;
-  }
+    constructor(nickname) {
+        this.#nickname = nickname;
+    }
 
-  getName() {
-    console.log(this.#nickname);
-    return this.#nickname;
-  }
+    getName() {
+        console.log(this.#nickname);
+        return this.#nickname;
+    }
 
-  setName(nickname) {
-    return (this.#nickname = nickname);
-  }
+    setName(nickname) {
+        return (this.#nickname = nickname);
+    }
 
-  Pack(pack, toy) {
-    if (pack instanceof Box) {
-      if (pack.isOpen === true) {
+    Pack(pack, toy) {
+        if (pack instanceof Box) {
+            if (pack.isOpen === true) {
+                pack.Insert(toy);
+                console.log(`Yeaaaah! Just packing the toy ~~ ${toy.getType()} ~~`);
+                return;
+            }
+        }
+        if (pack.toy !== null) {
+            console.log("Sorry this package already filled");
+            return;
+        }
         pack.Insert(toy);
-        console.log(`Yeaaaah! Just packing the toy ~~ ${toy.getType()} ~~`);
-        return;
-      }
+
+        console.log(`Yeaaaah! Just packing the toy ~~ ${toy.type} ~~`);
+        return toy;
     }
-    if (pack.toy !== null) {
-      console.log("Sorry this package already filled");
-      return;
+
+    Unpack(pack) {
+        if (pack instanceof Box) {
+            if (pack.isOpen === true || !pack.toy) {
+                console.log("Sorry this package is already empty ! :(");
+                return;
+            }
+        }
+        if (pack.toy === null) {
+            console.log("Sorry this package is already empty ! :(");
+            return;
+        }
+        console.log(`Ooooooh! Just unpacking the toy ~~ ${pack.toy.type} ~~`);
+        pack.toy = null;
+
     }
-    pack.Insert(toy);
 
-    console.log(`Yeaaaah! Just packing the toy ~~ ${toy.type} ~~`);
-    return toy;
-  }
-
-  Unpack(pack) {
-    if (pack instanceof Box) {
-      if (pack.isOpen === true || !pack.toy) {
-        console.log("Sorry this package is already empty ! :(");
-        return;
-      }
+    put(furnitures, obj) {
+        furnitures.put(obj);
     }
-    if (pack.toy === null) {
-      console.log("Sorry this package is already empty ! :(");
-      return;
+
+    take() {
+        console.log("take");
+        this.furnitures.take();
     }
-    console.log(`Ooooooh! Just unpacking the toy ~~ ${pack.toy.type} ~~`);
-    pack.toy = null;
-    return;
-  }
-  put(furnitures, obj) {
-    furnitures.put(obj);
-  }
 
-  take() {
-    console.log("take");
-    this.furnitures.take();
-  }
+    look(furnitures) {
+        const list = [];
+        furnitures.content.forEach(element => {
+            list.push(Object.getPrototypeOf(element.constructor).name);
+        });
+        console.log(list);
+    }
 
-  look(furnitures) {
-    const list = [];
-    furnitures.content.forEach(element => {
-      list.push(Object.getPrototypeOf(element.constructor).name);
-    });
-    console.log(list);
-  }
+    in(conveyor) {
+        conveyor.in();
+    }
 
-  in(conveyor) {
-    conveyor.in();
-  }
-  out(furnitures) {
-    furnitures.out();
-  }
+    out(furnitures) {
+        furnitures.out();
+    }
 }
