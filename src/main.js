@@ -1,11 +1,11 @@
-import Pony from "./Class/class.Pony";
-import DragonBall from "./Class/class.DragonBall";
-import Box from "./Class/class.Box";
+import Pony from "./Models/class.Pony";
+import DragonBall from "./Models/class.DragonBall";
+import Box from "./Models/class.Box";
 import { DBHeroes } from "./constants/DBHeroes";
-import Elf from "./Class/class.Elf";
-import GiftWrap from "./Class/class.GiftWrap";
-import ConveyorBell from "./Class/class.ConveyorBelt";
-import Table from "./Class/class.Table";
+import Elf from "./Models/class.Elf";
+import GiftWrap from "./Models/class.GiftWrap";
+import ConveyorBell from "./Models/class.ConveyorBelt";
+import Table from "./Models/class.Table";
 
 let pony = new Pony();
 let BEJITA = new DragonBall(DBHeroes.BEJITA);
